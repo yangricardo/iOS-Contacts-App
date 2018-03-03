@@ -13,10 +13,10 @@ class ViewController: UITableViewController {
     let cellID = "cellID"
     
     var namesLists = [
-        ExpandableNames(isExpanded:false,names:["Yang","Ricardo","Barcellos","Miranda",]),
-        ExpandableNames(isExpanded:false,names:["Vera","Lucia","Alves","Oliveira",]),
+        ExpandableNames(isExpanded:false,names:["Yang","Ricardo","Barcellos","Miranda",],section:"Yang"),
+        ExpandableNames(isExpanded:false,names:["Vera","Lucia","Alves","Oliveira",],section:"Vera"),
 
-        ExpandableNames(isExpanded:false,names:["Douglas","Peixoto"]),
+        ExpandableNames(isExpanded:false,names:["Douglas","Peixoto"],section:"Douglas"),
     ]
     
     var showIndexPaths = false
@@ -48,7 +48,7 @@ class ViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show IndexPath", style: .plain, target: self, action: #selector(handleShowIndexPath))
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(ContactCell.self, forCellReuseIdentifier: cellID)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +63,7 @@ class ViewController: UITableViewController {
         //return label
         
         let closeButton = UIButton(type: .system)
-        closeButton.setTitle("Close", for: .normal)
+        closeButton.setTitle(namesLists[section].section, for: .normal)
         closeButton.setTitleColor(.black, for: .normal)
         closeButton.backgroundColor = .yellow
         closeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
@@ -86,7 +86,7 @@ class ViewController: UITableViewController {
         
         namesLists[section].isExpanded = !isExpanded
         
-        button.setTitle(isExpanded ? "Abrir" : "Fechar", for: .normal)
+        //button.setTitle(isExpanded ? "Abrir" : "Fechar", for: .normal)
         
         if isExpanded{
             tableView.deleteRows(at: indexPaths, with: .fade)
@@ -112,13 +112,19 @@ class ViewController: UITableViewController {
 
     //Conteudo da Celula
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! ContactCell
+        cell.controller = self
         let name = self.namesLists[indexPath.section].names[indexPath.row]
         
         cell.textLabel?.text = !showIndexPaths ? name : "\(name) Seção: \(indexPath.section) Row: \(indexPath.row)";
+        cell.textLabel?.textColor = .white
         
         return cell
     }
+    
+    func handleMarkAsFavorite() {
+        
+    }
+    
 }
 
