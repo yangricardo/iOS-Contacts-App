@@ -18,12 +18,34 @@ class ViewController: UITableViewController {
         ["Douglas","Peixoto"],
     ]
     
+    var showIndexPaths = false
+    
+    @objc func handleShowIndexPath()  {
+        var indexPathReloading = [IndexPath]()
+        
+        for section in namesLists.indices{
+            for row in namesLists[section].indices{
+                let indexPath = IndexPath(row: row, section: section)
+                indexPathReloading.append(indexPath)
+            }
+        }
+        
+        showIndexPaths = !showIndexPaths
+        
+        let animationStyle:UITableViewRowAnimation = showIndexPaths ? .right : .left
+        
+        tableView.reloadRows(at: indexPathReloading, with: animationStyle)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         navigationItem.title = "Contatos"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show IndexPath", style: .plain, target: self, action: #selector(handleShowIndexPath))
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
@@ -56,7 +78,7 @@ class ViewController: UITableViewController {
         
         let name = self.namesLists[indexPath.section][indexPath.row]
         
-        cell.textLabel?.text = "\(name) Seção: \(indexPath.section) Row: \(indexPath.row)"
+        cell.textLabel?.text = !showIndexPaths ? name : "\(name) Seção: \(indexPath.section) Row: \(indexPath.row)";
         
         return cell
     }
