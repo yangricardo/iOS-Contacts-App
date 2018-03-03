@@ -12,6 +12,7 @@
 		2FDA578F204A2E7A00016C7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA578D204A2E7A00016C7C /* Main.storyboard */; };
 		2FDA5791204A2E7A00016C7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA5790204A2E7A00016C7C /* Assets.xcassets */; };
 		2FDA5794204A2E7A00016C7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA5792204A2E7A00016C7C /* LaunchScreen.storyboard */; };
+		2FDA579C204A52C200016C7C /* ExpandableNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA579B204A52C200016C7C /* ExpandableNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2FDA5790204A2E7A00016C7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FDA5793204A2E7A00016C7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FDA5795204A2E7A00016C7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDA579B204A52C200016C7C /* ExpandableNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				2FDA5790204A2E7A00016C7C /* Assets.xcassets */,
 				2FDA5792204A2E7A00016C7C /* LaunchScreen.storyboard */,
 				2FDA5795204A2E7A00016C7C /* Info.plist */,
+				2FDA579B204A52C200016C7C /* ExpandableNames.swift */,
 			);
 			path = contacts;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FDA579C204A52C200016C7C /* ExpandableNames.swift in Sources */,
 				2FDA578C204A2E7A00016C7C /* ViewController.swift in Sources */,
 				2FDA578A204A2E7A00016C7C /* AppDelegate.swift in Sources */,
 			);
